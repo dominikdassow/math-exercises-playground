@@ -1,0 +1,9 @@
+exercises:
+  simple-addition:
+    expression: "&random& + &random&"
+    dynamics:
+      random: "random_number(1, 1000)"
+  simple-multiplication:
+    expression: "&random& * &random&"
+    dynamics:
+      random: "random_number(1, 1000)"
