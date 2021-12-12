@@ -26,7 +26,7 @@
 
 <style lang="scss">
   header {
-    @apply p-10;
+    @apply p-20;
 
     a {
       @apply no-underline;
@@ -48,7 +48,7 @@
   }
 
   footer {
-    @apply p-5;
+    @apply p-5 pt-20;
 
     a {
       @apply flex items-center;
