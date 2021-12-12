@@ -79,6 +79,18 @@
         @apply from-sky-400 to-indigo-500;
       }
 
+      &.color-red {
+        @apply from-pink-500 to-rose-500;
+      }
+
+      &.color-green {
+        @apply from-green-400 to-cyan-500;
+      }
+
+      &.color-purple {
+        @apply from-fuchsia-500 to-purple-600;
+      }
+
       &.color-yellow {
         @apply from-amber-400 to-orange-500;
       }

@@ -5,9 +5,28 @@ exercises:
     color: "blue"
     dynamics:
       random: "random_number(1, 1000)"
+  simple-subtraction:
+    name: "Simple Subtraction"
+    expression: "&random_high& - &random_low&"
+    color: "green"
+    dynamics:
+      random_high: "random_number(1, 1000)"
+      random_low: "random_number(1, 500)"
   simple-multiplication:
     name: "Simple Multiplication"
     color: "yellow"
     expression: "&random& * &random&"
     dynamics:
       random: "random_number(1, 1000)"
+  simple-division:
+    name: "Simple Division"
+    color: "purple"
+    expression: "\\frac{&random&}{&random&}"
+    dynamics:
+      random: "random_number(1, 50)"
+  simple-square-root:
+    name: "Simple Square Root"
+    color: "red"
+    expression: "\\sqrt{&random&}"
+    dynamics:
+      random: "random_number(2, 1000)"
