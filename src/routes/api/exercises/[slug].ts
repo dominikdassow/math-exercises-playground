@@ -3,6 +3,7 @@ import { init as initDatabase } from "$lib/database"
 import type { Exercise, ExerciseDetails } from "$lib/model/exercise"
 import { throwError } from "svelte-preprocess/dist/modules/errors"
 import evaluatex from "evaluatex"
+import type { DefaultBody } from "@sveltejs/kit/types/endpoint"
 
 const parseDynamics = (dynamic: string): string => {
   return evaluatex(dynamic, {
@@ -18,7 +19,7 @@ const createExpression = (exercise: Exercise): string => {
   })
 }
 
-type Request = RequestHandler<Record<string, never>, Record<string, never>, ExerciseDetails>
+type Request = RequestHandler<Record<string, never>, Record<string, never>, ExerciseDetails & DefaultBody>
 
 export const get: Request = async ({ params }) => {
   const { slug } = params,
@@ -32,6 +33,8 @@ export const get: Request = async ({ params }) => {
     status: 200,
     body: {
       slug,
+      name: exercise.name,
+      color: exercise.color,
       expression: createExpression(exercise)
     }
   }

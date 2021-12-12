@@ -1,9 +1,13 @@
 exercises:
   simple-addition:
+    name: "Simple Addition"
     expression: "&random& + &random&"
+    color: "blue"
     dynamics:
       random: "random_number(1, 1000)"
   simple-multiplication:
+    name: "Simple Multiplication"
+    color: "yellow"
     expression: "&random& * &random&"
     dynamics:
       random: "random_number(1, 1000)"

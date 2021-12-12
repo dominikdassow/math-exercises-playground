@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores"
   import { goto } from "$app/navigation"
-  import type { ExerciseData } from "$lib/model/exercise"
+  import { ExerciseData } from "$lib/model/exercise"
   import { onMount } from "svelte"
 
   onMount(async () => {
@@ -22,7 +22,7 @@
   const scrollIntoView = async (slug: string, delay: number) => {
     await new Promise(resolve => setTimeout(resolve, delay))
 
-    let element = document.getElementById(slug)
+    let element = document.querySelector(`[data-slug="${slug}"]`)
     if (!element) return
 
     window.requestAnimationFrame(() => {
@@ -45,8 +45,8 @@
 <div class="exercises">
   {#await allExercises then exercises}
     {#each exercises as exercise}
-      <div id={exercise.slug} class="card transform" class:selected={exercise.slug === $page.params.slug} on:click={select(exercise)}>
-        {exercise.slug}
+      <div data-slug={exercise.slug} class="card transform color-{exercise.color}" class:selected={exercise.slug === $page.params.slug} on:click={select(exercise)}>
+        {exercise.name}
       </div>
     {/each}
   {/await}
@@ -67,12 +67,20 @@
     .card {
       @apply flex-none;
       @apply snap-center shrink-0;
-      @apply bg-gradient-to-r from-sky-400 to-indigo-500;
+      @apply bg-gradient-to-r;
       @apply text-white cursor-pointer;
-      @apply transition-[top] top-0 hover:top-2;
+      @apply transition border-y-8 border-transparent hover:border-b-white/50;
 
       &.selected {
-        @apply top-2;
+        @apply border-b-white/50;
+      }
+
+      &.color-blue {
+        @apply from-sky-400 to-indigo-500;
+      }
+
+      &.color-yellow {
+        @apply from-amber-400 to-orange-500;
       }
     }
   }

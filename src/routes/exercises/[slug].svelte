@@ -1,5 +1,7 @@
 <script context="module" lang="ts">
-  export const load = async ({ page, fetch }) => {
+  import type { Load } from "@sveltejs/kit"
+
+  export const load: Load = async ({ page, fetch }) => {
     const { slug } = page.params
 
     const response = await fetch(`/api/exercises/${slug}`)
@@ -19,7 +21,7 @@
 </script>
 
 <script lang="ts">
-  import type { ExerciseDetails } from "$lib/model/exercise"
+  import { ExerciseDetails } from "$lib/model/exercise"
   import katex from "katex"
 
   export let exercise: ExerciseDetails
