@@ -22,13 +22,16 @@ export const post: Request = async ({ body }) => {
   if (!body) return { status: 400, body: { error: "No data specified" } }
 
   const expression = body.expression,
-    result = Number(body.result)
+    result = parseFloat(body.result)
 
   if (!expression) return { status: 400, body: { error: "No expression specified" } }
-  if (!result) return { status: 400, body: { error: "No or non-numerical result specified" } }
+  if (!result || isNaN(result)) return { status: 400, body: { error: "No or non-numerical result specified" } }
+
+  const evaluation: number = evaluatex(expression)()
+  const correct = evaluation.toFixed(10) === result.toFixed(10)
 
   return {
     status: 200,
-    body: { expression, result, correct: evaluatex(expression)() === result }
+    body: { expression, result, correct }
   }
 }
