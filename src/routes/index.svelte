@@ -1,8 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="card">
+  <a href="/exercises">All Exercises</a>
+</div>
 
-<style>
-  h1 {
-    @apply p-8;
+<style lang="scss">
+  .card {
+    @apply inline-block;
+    @apply bg-gradient-to-r from-sky-400 to-indigo-500;
+
+    a {
+      @apply text-white;
+    }
   }
 </style>
