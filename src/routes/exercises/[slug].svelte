@@ -63,6 +63,14 @@
   }
 </script>
 
+<svelte:window
+  on:sveltekit:navigation-start={() => {
+    result = ""
+    checked = false
+    correct = false
+  }}
+/>
+
 <svelte:head>
   <link
     rel="stylesheet"
