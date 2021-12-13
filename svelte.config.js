@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-auto"
+import cloudflare from "@sveltejs/adapter-cloudflare"
 import preprocess from "svelte-preprocess"
 
 /** @type {import("@sveltejs/kit").Config} */
@@ -12,7 +12,7 @@ const config = {
     })
   ],
   kit: {
-    adapter: adapter(),
+    adapter: cloudflare(),
     target: "#svelte",
     vite: {
       css: {
@@ -21,6 +21,9 @@ const config = {
             additionalData: '@import "src/variables.scss";'
           }
         }
+      },
+      ssr: {
+        noExternal: ["evaluatex"]
       }
     }
   }

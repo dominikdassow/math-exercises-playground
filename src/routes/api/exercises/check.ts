@@ -1,5 +1,5 @@
 import type { RequestHandler } from "@sveltejs/kit"
-import evaluatex from "evaluatex"
+import evaluatex from "evaluatex/dist/evaluatex"
 
 type Body = {
   expression: string

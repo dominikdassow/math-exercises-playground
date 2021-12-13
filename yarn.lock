@@ -102,7 +102,7 @@
     "@sveltejs/adapter-netlify" "1.0.0-next.35"
     "@sveltejs/adapter-vercel" "1.0.0-next.31"
 
-"@sveltejs/adapter-cloudflare@1.0.0-next.2":
+"@sveltejs/adapter-cloudflare@1.0.0-next.2", "@sveltejs/adapter-cloudflare@next":
   version "1.0.0-next.2"
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-cloudflare/-/adapter-cloudflare-1.0.0-next.2.tgz#315120db4305b7301f0c8d454bf1093559b119f3"
   integrity sha512-4Q7ZuoMck7wwzIO7gd8gqnm7gWflztTDHU/C1DzLr8V2UprQFQwsUE/padtQhFPXkgAiXJ8AwLksey4A8qjOsA==
@@ -535,10 +535,6 @@ cosmiconfig@^7.0.1:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
-
-"create-map-transform-fn@gist:f65ddd8f17f8c388659aab76890f194b":
-  version "0.2.0"
-  resolved "https://gist.github.com/f65ddd8f17f8c388659aab76890f194b.git#a2b8ea093c4a1a743725611c16ebd10ba9797bb6"
 
 cross-spawn@^7.0.2:
   version "7.0.3"

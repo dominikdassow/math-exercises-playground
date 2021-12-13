@@ -1,8 +1,7 @@
 import type { RequestHandler } from "@sveltejs/kit"
 import { init as initDatabase } from "$lib/database"
 import type { Exercise, ExerciseDetails } from "$lib/model/exercise"
-import { throwError } from "svelte-preprocess/dist/modules/errors"
-import evaluatex from "evaluatex"
+import evaluatex from "evaluatex/dist/evaluatex"
 import type { DefaultBody } from "@sveltejs/kit/types/endpoint"
 
 const parseDynamics = (dynamic: string): string => {
@@ -13,7 +12,7 @@ const parseDynamics = (dynamic: string): string => {
 
 const createExpression = (exercise: Exercise): string => {
   return exercise.expression.replace(/&(\w+)&/g, (match: string, dynamic: string) => {
-    if (!exercise.dynamics.has(dynamic)) throwError(`Dynamic "${match}" not specified`)
+    if (!exercise.dynamics.has(dynamic)) throw new Error(`Dynamic "${match}" not specified`)
 
     return parseDynamics(exercise.dynamics.get(dynamic))
   })

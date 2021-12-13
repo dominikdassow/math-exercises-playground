@@ -1,8 +1,7 @@
-import YAML from "yaml"
-import { readFile } from "fs/promises"
 import { plainToInstance, Transform } from "class-transformer"
-import createMapTransformFn from "create-map-transform-fn"
+import createMapTransformFn from "$lib/helper/createMapTransformFn"
 import { Exercise } from "$lib/model/exercise"
+import * as data from "../../data/database.json"
 
 export class Database {
   @Transform(createMapTransformFn(Exercise))
@@ -10,7 +9,5 @@ export class Database {
 }
 
 export const init = async (): Promise<Database> => {
-  const data = YAML.parse(await readFile("data/database.yaml", "utf8"))
-
   return plainToInstance(Database, data)
 }

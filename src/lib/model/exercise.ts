@@ -1,5 +1,5 @@
 import { Transform } from "class-transformer"
-import createMapTransformFn from "create-map-transform-fn"
+import createMapTransformFn from "$lib/helper/createMapTransformFn"
 
 export class Exercise {
   name: string
