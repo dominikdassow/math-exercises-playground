@@ -120,7 +120,7 @@
 
 <style lang="scss">
   .card {
-    @apply mx-auto max-w-screen-md p-0;
+    @apply p-0 mx-10;
     @apply flex flex-col;
 
     .expression {

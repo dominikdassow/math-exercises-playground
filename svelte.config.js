@@ -23,7 +23,7 @@ const config = {
         }
       },
       ssr: {
-        noExternal: ["evaluatex"]
+        noExternal: process.env.NODE_ENV === "development" ? [] : ["evaluatex"]
       }
     }
   }

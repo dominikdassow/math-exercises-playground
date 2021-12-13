@@ -52,7 +52,9 @@
   {/await}
 </div>
 
-<slot />
+<div class="content">
+  <slot />
+</div>
 
 <style lang="scss">
   ::-webkit-scrollbar {
@@ -95,5 +97,9 @@
         @apply from-amber-400 to-orange-500;
       }
     }
+  }
+
+  .content {
+    @apply mx-auto max-w-screen-md;
   }
 </style>
